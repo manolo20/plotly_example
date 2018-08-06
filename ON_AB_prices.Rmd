@@ -1,0 +1,42 @@
+---
+title: "Contribution to the Consumer Price Index"
+author: "Manolo Malaver-Vojvodic"
+date: "August 5, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+This presentation shows a stack bar plot of the contribution of the major items of the Canadian basket of goods and services to the overall consumer price index of the provinces of Ontario and Alberta.
+
+
+## Price weights plot
+
+```{r,  echo = FALSE, message=FALSE}
+library(plotly)
+library(ggplot2)
+
+data1<- readRDS("/home/atai/Documents/Coursera/Developing_data_products/Assign_2/data.rds")
+
+ggplotly(ggplot(data1, aes(x = Region, y = X2015,
+                             fill=factor(Item), order= Item))+
+     geom_bar(stat = "identity") + 
+     xlab("Jurisdiction") +
+     ylab("Percentage") +
+     theme_minimal()+
+     guides(fill=guide_legend(title="Item", reverse = T))+
+     theme(plot.title=element_text(family="Arial", face="bold", size=12),
+           axis.text.x = element_text(angle = 0, family="Arial", size=11), 
+           axis.text.y = element_text(angle = 0, family="Arial", size=11),
+           axis.title.x = element_text(size=11, face="bold", vjust = -1),
+           axis.title.y = element_text(size=11, face="bold", vjust = 2)
+      ), tooltip = c("x", "y", "order"))
+     
+
+
+```
+
