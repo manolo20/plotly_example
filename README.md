@@ -1,7 +1,7 @@
 
-Stackbar plot built in Plotly
+# Stackbar plot built in Plotly
 
-Please refer to:
+This basic rmarkdown embeds a plotly stackbar bar chart. 
 
-https://manolo20.github.io/plotly_example/ON_AB_prices.html.
+The rmarkdown is hosted [here](https://manolo20.github.io/plotly_example/ON_AB_prices.html).
 
